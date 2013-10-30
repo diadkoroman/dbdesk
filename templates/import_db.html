@@ -1,0 +1,40 @@
+{% extends 'layouts/layout_0.html' %}
+{% block content %}
+{% include 'components/toppanel.html' %}
+<div class="container">
+  <div class="page-header">
+    <h3>Welcome to DBdesk!</h3>
+  </div>
+  <form method="post" action="?r=import"
+	      enctype="multipart/form-data">  
+    <div class="row">
+      <div class="span8">
+	<div class="alert alert-info">
+	  <h5>Here you can import your SQLite database file (.db) to work
+          with them.</h5>
+      <hr/>
+  <strong>Please remember:</strong><br/> We store your data only through the
+      your session. If your data considered as strictly private we recommend use
+      other services with proper security level.
+	</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span8">
+	<div class="well">
+	  {% with messages = get_flashed_messages() %} 
+	  <input type="file" name="db_file" class="span3"/>
+	  {% endwith %}
+	  <button type="submit" class="btn btn-primary">Import
+	    DB</button>
+	<hr/>
+	<label class="checkbox">
+	  <input type="checkbox" name="agreement" value="yes"/>I
+	  understand all risks</label>
+	{% if idb_form.agreement.errors %}<div class="alert">{% for error in idb_form.agreement.errors %}{{ error }}{% endfor %}</div>{% endif %}
+	</div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock content %}

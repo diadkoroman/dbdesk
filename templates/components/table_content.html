@@ -1,0 +1,26 @@
+{% extends 'dbman.html' %}
+{% block workspace %}
+<p>{% if tbname %}{{tbname}}{% endif %} : {{ table_rows}} rows<p>
+<div id="add_entry">
+    {% include 'components/add_entry.html' %}
+</div>
+<table class="table table-bordered table-condensed">
+  <tr>
+    {% for item in columns %}
+    <th>{{ item.name }} ({{ item.type }})</th>
+    {% endfor %}
+
+    <th></th>
+</tr>
+
+  {% for row in table_content %}
+  <tr>
+      {% for ch in row %}
+      <td>{{ ch }}</td>
+      {% endfor %}
+      <td><a title="delete item" href="delete/?id={{ row.id }}">del</a></td>
+  </tr>
+  {% endfor %}
+  
+</table>
+{% endblock workspace %}
