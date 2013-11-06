@@ -1,12 +1,10 @@
-drop table if exists entries;
-create table entries (
+create table if not exists entries(
   id integer primary key autoincrement,
   title text not null,
   text text not null
 );
 
-drop table if exists pagetitles;
-create table pagetitles (
+create table if not exists pagetitles (
 id integer primary key autoincrement,
 rank integer default 0,
 parent_id integer default 0,

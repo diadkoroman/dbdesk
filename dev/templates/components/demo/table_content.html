@@ -1,0 +1,21 @@
+{% extends 'demo/dbman.html' %}
+{% block workspace %}
+<p>{% if tbname %}{{tbname}}{% endif %} : {{ table_rows}} rows<p>
+<table class="table table-bordered table-condensed">
+  <tr>
+    {% for item in columns %}
+    <th ident="{{ item.name }}">{{ item.name }} ({{ item.type }})</th>
+    {% endfor %}
+</tr>
+
+  {% for row in table_content %}
+  <tr row="{{ row.id }}">
+      {% for ch in row %}
+      <td>{{ ch }}</td>
+      {% endfor %}
+  </tr>
+  {% endfor %}
+
+</table>
+
+{% endblock workspace %}

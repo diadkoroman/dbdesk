@@ -3,10 +3,9 @@ function Options(){
     if(trm_.text()!=''){
         $('#term').show()
         }
-
-    $('#options-menu a').click(function(){
-        var id = $(this).attr('href')
-        $(id).toggle()
-        })
-    }
+    $('.query').click(function(){
+        var q=$(this).attr('query')
+        trm_.empty().html(q)
+    })
+}
 $(document).ready(Options)

@@ -3,7 +3,7 @@ import os, sys
 
 APP_NAME = 'DBdesk'
 APP_VER = '0.1'
-APP_TITLE = APP_NAME
+APP_TITLE = APP_NAME+' '+APP_VER
 SQLITE_DB_DIR = os.environ['project_dir']+'/assets/db'
 APP_DB = 'dbdesk.db'
 SQLITE_APPDB_PATH = SQLITE_DB_DIR+'/'+APP_DB

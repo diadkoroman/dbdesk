@@ -1,0 +1,23 @@
+<form class="form" action="?r=req" method="post">
+    {% from 'components/formfield_h.html' import render_field %}
+    <div class="row">
+        <div class="span6">
+            {{ render_field(sqlt_form.terminal_data) }}
+        </div>
+    </div>
+    <div class="row">
+            <div class="span6">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="alert alert-error">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+        </div>
+                <div class="span2"><span class="pull-right"><button type="submit" class="btn btn-mini">QUERY</button></span></div>
+    </div>
+</form>
+
