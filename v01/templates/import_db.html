@@ -1,0 +1,53 @@
+{% extends 'layouts/layout_0.html' %}
+{% block content %}
+{% include 'components/toppanel.html' %}
+<div id="presentat-field">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h4>Welcome to DBdesk!</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-7">
+                <div class="panel panel-default" id="warn-text">
+                    <div class="panel-heading">
+                        <h5 class="panel-title"><h5>Here you can import your SQLite
+                                database file (.db) to work with.<h5></h5>
+                    </div>
+                    <div class="panel-body">
+                        <strong>Warning:</strong><br/>
+                        We store your data only through your session.<br/>If your data considered as strictly private we recommend use
+                        other services with proper security level.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                  <form method="post" action="?r=import" enctype="multipart/form-data">
+                      <div class="panel panel-success" id="import-field">
+                          <div class="panel-heading"><h5>Upload your database
+                                  file here</h5></div>
+                          <div class="panel-body">
+                              {% with messages = get_flashed_messages() %} 
+                              <input type="file" name="db_file" class="col-md-9"/>
+                              {% endwith %}
+                              <button type="submit" class="btn btn-default">Import DB</button>
+                              <label class="checkbox">
+                                  <input type="checkbox" name="agreement"
+                                  value="yes"/><small>I`ve read Warning. It`s OK
+                                      for me.</small></label>
+                              {% if idb_form.agreement.errors %}<div class="alert">{% for error in idb_form.agreement.errors %}{{ error }}{% endfor %}</div>{% endif %}
+                          </div>
+                          
+                      </div>
+                  </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

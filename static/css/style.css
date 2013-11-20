@@ -1,1 +1,6 @@
 #add_entry, #update_entry{display:none;}
+#presentat-field{}
+#warn-text{height:200px;}
+#import-field{height:200px;}
+#term{display:none;}
+.terminal{width:100%;height:50px;}

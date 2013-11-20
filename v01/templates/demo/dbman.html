@@ -1,0 +1,35 @@
+{% extends 'layouts/layout_0.html' %}
+{% block content %}
+{% include 'components/demo/toppanel.html' %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <h4>
+            {{ dbname }} {% if tbname %}<small>{{tbname}}</small>{% endif %}
+        </h4>
+        <hr/>
+    </div>
+  </div>
+
+          <!--options menu-->
+          {% include 'menues/demo/options.html' %}
+          <!--options menu end-->
+          <div class="row">
+              <!--left block-->
+              <div class="col-md-2">
+                  {% include 'menues/demo/tablelist.html'%} 
+              </div>
+              <!--right block-->
+              <div class="col-md-10">
+                  <!--terminal-->
+                  <div id="term">
+                          {% include 'components/terminal.html' %}
+                </div>
+                <!--terminal end-->
+                {% block workspace %}{% endblock workspace %}
+            </div>
+        </div>
+
+</div>
+{% endblock content %}
+

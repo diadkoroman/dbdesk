@@ -6,10 +6,10 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 
 app = Flask(__name__)
 app.debug = True
-app.config.from_object('configs.settings')
+app.config.from_object('v01.configs.settings')
 
 # dev version
-from dev.dbdeskapp import sqlmd
+from v01.dbdeskapp import sqlmd
 app.register_blueprint(sqlmd,url_prefix = '/sqlite')
 
 @app.route('/')

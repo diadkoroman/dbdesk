@@ -1,0 +1,18 @@
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+          <a class="navbar-brand" href="/">{{ logo }}</a>
+          
+          <ul class="nav navbar-nav pull-right">
+              <li class="divider-vertical"></li>
+              <li><a href="{{ url_for('sqlmd.demo_index_view')}}">Demo</a></li>
+              {% if db_path %}
+                <li><a href="{{ url_for('sqlmd.download_view')}}">Download</a></li>
+                <li class="divider-vertical"></li>
+                <li><a href="{{ url_for('sqlmd.exitdb_view')}}">Exit & Delete File</a></li>
+                <!--<li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>-->
+                {% endif %}
+            </ul>
+        </div>
+</div>
+
